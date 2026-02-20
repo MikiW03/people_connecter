@@ -20,7 +20,7 @@ public abstract class AbstractOutputPresenter implements OutputPresenter {
         StringBuilder line = new StringBuilder("Participant " + participant.id() + " -> ");
         pairs.forEach(pair -> {
             Participant match = (pair.participant1().equals(participant)) ? pair.participant2() : pair.participant1();
-            line.append(match.id()).append(" ");
+            line.append(String.format("%s(quality:%.1f) ", match.id(), pair.quality()));
         });
         return line.toString().trim();
     }
